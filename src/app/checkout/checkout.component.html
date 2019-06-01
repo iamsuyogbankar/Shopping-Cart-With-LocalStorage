@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Checkout Page
+          <span style="float: right;"><strong style="color: black">ORDER NO:- 1001</strong></span>
+          </div>
+          <div class="cart-body">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <td>S.No</td>
+                  <td>Product</td>
+                  <td>Quantity</td>
+                  <td>Price</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>                
+                  <tr *ngIf="checkout == ''">
+                      <td colspan="5" class="text-center"><h4>Your checkout is empty</h4></td>
+                    </tr>
+                <tr *ngFor="let chkdata of checkout; let i = index">
+                  <td>{{ i+1 }}</td>
+                  <td>{{ chkdata.name }}</td>
+                  <td><input type="number" class="form-control" value="{{ chkdata.quantity }}" min="1" readonly></td>
+                  <td><input type="number" class="form-control" value="{{ chkdata.price }}" readonly></td>
+                  <td><input type="number" class="form-control" value="{{ chkdata.quantity * chkdata.price }}" readonly></td>
+                </tr>
+              </tbody>            
+            </table>
+            <div style="float: right" class="mr-5">
+                <span>Total</span>
+                <input type="number" class="form-control" value="{{ total }}" readonly>
+                <button class="btn btn-outline-primary btn-md mt-5 mb-3" (click)="onCheckout()">Proceed To Pay</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

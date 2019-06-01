@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mt-5">
+        <div class="card-header">All Products
+          <div style="float: right;"><strong>
+          <span class="mr-3" routerLink="/login">Login</span>
+          <span routerLink="/addproduct">Cart</span></strong>
+        </div>
+        </div>
+        <div class="card-body">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block w-100" src="https://cdnus.melaleuca.com/Images/about/home-page/desktop/products--large.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="https://cdnus.melaleuca.com/Images/about/home-page/desktop/products--large.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100" src="https://cdnus.melaleuca.com/Images/about/home-page/desktop/products--large.png" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only" style="color: red">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators"  style="color: red" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="card mt-4" >
+      <div class="card-header">
+        All Your Products
+      </div>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="text-center mt-4 ml-5" *ngIf="allProduct == '' ">
+              <h4>You dont't have any product.</h4>
+          </div>
+          <div class="card-body col-md-3 m-3" *ngFor="let products of allProduct" style="width: 18rem;">
+            <div class="" style="width: auto;" >
+              <img class="card-img-top" src="{{ products.image }}" alt="Card image cap">                
+              <div class="card-title ml-4 mt-4"><Strong>Name:- {{ products.name }}</Strong></div>
+              <div class="ml-4 mt-4"><strong>Price:- Rs {{ products.price }}</strong></div>
+              <div class="ml-4 mt-4"><strong>Quantity:- {{ products.quantity }}</strong></div>
+              <label for="" class="ml-4 mt-4"><strong>Category:- {{ products.category }}</strong></label>
+              <button class="btn btn-outline-primary btn-md mt-4" routerLink="/cart" (click)="addtoCart(products.id)">Add To Cart</button>
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

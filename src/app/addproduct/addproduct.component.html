@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Add Product</div>
+            <div class="card-body">
+              <form [formGroup]="product" (ngSubmit)="saveProduct(product.value)" method="POST">
+                <div class="form-group" >
+                  <label for="">Name</label>
+                  <input type="text" class="form-control" placeholder="Enter name"
+                  name="name" formControlName="name" id="name" name="name"
+                   required>
+                   <div class="ml-4" *ngIf="product.controls['name'].touched">
+                      <span style="color: red;" *ngIf="product.controls['name'].hasError('required')">
+                        Your Email is Required
+                      </span>
+                    </div>
+                  
+                  <label for="">Price</label>
+                  <input type="number" class="form-control" placeholder="Enter Price" 
+                  name="price" formControlName="price" id="price" name="price" required>
+                    <div class="ml-4" *ngIf="product.controls['price'].touched">
+                      <span style="color: red;" *ngIf="product.controls['price'].hasError('required')">
+                        Your Email is Required
+                      </span>
+                    </div>
+
+                  <label for="">Quantity</label>
+                  <input type="number" class="form-control" placeholder="Enter Quantity" 
+                  name="qty" formControlName="qty" id="qty" name="qty" required>
+                    <div class="ml-4" *ngIf="product.controls['qty'].touched">
+                      <span style="color: red;" *ngIf="product.controls['qty'].hasError('required')">
+                        Your Email is Required
+                      </span>
+                    </div>
+
+                  <div class="mt-2">
+                  <label for="">Category</label>
+                  &nbsp;<select name="category" formControlName="category" id="category" name="category">
+                    <option value="Footwear">Footwear</option>
+                    <option value="Clothing">Clothing</option>
+                  </select>
+                </div>
+
+                  <div>
+                  <button type="submit" class="btn btn-outline-primary btn-md mt-5 ml-5" [disabled]="!product.valid">Add Product </button>
+                  <button routerLink="" class="btn btn-outline-success btn-md ml-4 mt-5">Home </button>
+                </div>
+
+                </div>
+              </form>
+            </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">View Product Details</div>
+          <div class="card-body">
+            <table class="table stripped">
+              <thead class="dark">
+                <tr>
+                  <th>Sno</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of pproduct; let i=index">
+                  <td>{{ i+1 }}</td>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price }}</td>
+                  <td>{{ product.quantity }}</td>
+                  <td><a routerLink="/edit/{{product.id}}" class="btn btn-outline-primary btn-md mb-3">Edit</a>
+                    &nbsp;<button class="btn btn-outline-danger btn-md" (click)="onDelete(product.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>  
+</div>
+

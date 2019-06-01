@@ -1,0 +1,14 @@
+.card{
+    margin-top: 5%;
+}
+.card-body{
+    margin-top: 0;
+    padding: 10%;
+}
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+.help-bpx,
+.help-block{
+    color: red;
+}

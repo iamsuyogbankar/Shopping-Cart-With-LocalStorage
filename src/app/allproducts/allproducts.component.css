@@ -1,0 +1,12 @@
+
+.card{
+    margin-top: 5%;
+}
+.card-body{
+    margin-top: 0;
+    padding: 10%;
+}
+.card-header{
+    margin: 20px;
+    margin-bottom: -20px;
+}

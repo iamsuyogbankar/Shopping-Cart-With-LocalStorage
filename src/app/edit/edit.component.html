@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Add Product</div>
+              <div class="card-body">
+                <form [formGroup]="editForm" (ngSubmit)="editProduct(editForm.value)">
+                  <div class="form-group" >
+                    <label for="">Name</label>
+                    <input value="{{filterData[0].name}}" type="text" class="form-control" placeholder="Enter name"                    
+                    formControlName="name" id="name" name="name" required>
+                    
+                    <label for="">Price</label>
+                    <input type="number" value="{{filterData[0].price}}" class="form-control" placeholder="Enter Price" 
+                    formControlName="price" id="price" name="price" required>
+  
+                    <label for="">Quantity</label>
+                    <input type="number" value="{{filterData[0].quantity}}" class="form-control" placeholder="Enter Price" 
+                    formControlName="qty" id="qty" name="qty" required>
+  
+
+                    <label for="">Category</label>
+                    <select name="category" [(ngModel)]="filterData[0].category"
+                    formControlName="category" id="category" name="category">
+                      <option value="Footwear">Footwear</option>
+                      <option value="Clothing">Clothing</option>
+                    </select>
+                    
+                    <button type="submit" class="btn btn-success btn-md mt-5 ml-5">Edit Product </button>
+                    <!-- <button routerLink="/login" class="btn btn-warning btn-md mt-5 ml-5">Back to Login </button> -->
+                    
+                  </div>
+                </form>
+              </div>
+        </div>
+      </div>
+  
+    </div>  
+  </div>
+  
+  

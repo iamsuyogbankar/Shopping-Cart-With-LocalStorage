@@ -1,0 +1,10 @@
+.card{
+    margin-top: 5%;
+}
+.card-body{
+    margin-top: 0;
+    padding: 10%;
+}
+input{
+    margin: 5px;
+}

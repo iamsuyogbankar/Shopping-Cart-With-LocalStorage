@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header"><strong>Login</strong></div>
+    <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm.value)" method="POST">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" 
+        formControlName="email" name="email" id="email" placeholder="Enter Email" required>
+          <div class="mb-2" *ngIf="loginForm.controls['email'].touched">
+            <span style="color: red;" *ngIf="loginForm.controls['email'].hasError('required')">
+              Your Email is Required
+            </span>
+          </div>
+          <br>
+        <label>Password</label>
+        <input type="text" class="form-control" 
+        formControlName="passwd" name="passwd" id="passwd"  placeholder="Enter Password" required>
+          <div *ngIf="loginForm.controls['passwd'].touched">
+            <span style="color: red;" *ngIf="loginForm.controls['passwd'].hasError('required')">
+              Your Password is Required
+            </span>
+          </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-md mt-5 ml-5" [disabled]="!loginForm.valid">Login </button>
+
+        <button class="btn btn-outline-danger btn-md mt-5 ml-5" routerLink="/register">Register </button>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
